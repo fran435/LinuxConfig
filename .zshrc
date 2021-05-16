@@ -101,7 +101,13 @@ export ARCHFLAGS="-arch x86_64"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 alias vim=nvim
 alias ls=lsd
-#alias cat=bat
+alias gi="git init"
+alias gs="git status"
+alias ga="git add"
+alias gc="git commit"
+alias go="git remote add origin"
+alias gpush="git push -u origin"
+alias ranger=rg
 
 export PATH=$PATH:~/.platformio/penv/bin
 export PATH=$PATH:~/.local/bin
