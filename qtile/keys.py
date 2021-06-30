@@ -1,11 +1,9 @@
 from libqtile.config import Click, Drag, Key
 from libqtile.lazy import lazy
-from libqtile.utils import guess_terminal
-
 import groups
 
 mod = "mod4"
-terminal = guess_terminal()
+terminal = "alacritty"
 
 keys = [
     # Foco de la pantalla
@@ -34,10 +32,10 @@ keys = [
     Key([mod], "n", lazy.layout.normalize()),
 
     # Reinicia Qtile
-    Key([mod, "control"], "r", lazy.restart()),
+    Key([mod], "r", lazy.restart()),
 
-    # Cierra qtile y manda al menú de inicio
-    Key([mod, "control"], "q", lazy.shutdown()),
+    # Menú de cierre de seción
+    Key([mod], "q", lazy.spawn("bash /home/fran/.config/qtile/shutdownMenu.sh")),
 
     # Cambia entre entre un layout y otro
     Key([mod], "Tab", lazy.next_layout()),
@@ -45,8 +43,11 @@ keys = [
     # Lanza una terminal
     Key([mod], "Return", lazy.spawn(terminal)),
 
-    # Lanza rofi
-    Key([mod],"e", lazy.spawn("rofi -show run"))
+    # Menú de herramientas
+    Key([mod],"e", lazy.spawn("bash /home/fran/.config/qtile/tools.sh")),
+
+    # Control de CMUS
+    Key([mod],"m", lazy.spawn("python3 /home/fran/.config/qtile/cmus.py"))
 ]
 
 for i in groups.groups:
@@ -56,7 +57,7 @@ for i in groups.groups:
         Key([mod], i.name, lazy.group[i.name].toscreen()),
 
         # Mueve la ventana actual al grupo i
-        Key([mod, "shift"], i.name, lazy.window.togroup(i.name, switch_group=True))
+        Key([mod, "control"], i.name, lazy.window.togroup(i.name, switch_group=True))
     ])
 
 mouse = [

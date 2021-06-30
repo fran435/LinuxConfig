@@ -11,6 +11,7 @@ floating_layout = layout.Floating(
     border_focus=BORDER_FOCUS,
     border_width=BORDER_WIDTH,
     float_rules=[
+        *layout.Floating.default_float_rules,
         {'wmclass': 'confirm'},
         {'wmclass': 'dialog'},
         {'wmclass': 'download'},
@@ -36,6 +37,7 @@ layouts = [
         border_normal=BORDER_NORMAL,
         border_focus=BORDER_FOCUS,
         border_width=BORDER_WIDTH,
+        num_columns = 3,
         margin=MARGIN
     ),
 

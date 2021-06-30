@@ -2,7 +2,7 @@ from libqtile.config import Group
 
 # Define los grupos
 groups = [
-    Group(name = "a", label = "", spawn = "alacritty &"),
+    Group(name = "a", label = ""),
     Group(name = "s", label = ""),
     Group(name = "d", label = "ﮧ"),
     Group(name = "f", label = ""),

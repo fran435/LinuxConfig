@@ -1,5 +1,6 @@
 from libqtile import hook
 import os
+import random
 
 from screens import *
 from keys import *
@@ -10,10 +11,10 @@ from layouts import *
 def autostart():
 
     cmd=[
-        "feh --bg-fill /home/fran/Imágenes/Wallpaper.jpg",
+        "feh --bg-fill /home/fran/Imágenes/wallpapers/wall{0}*".format(str(random.randint(0,7))) ,
         "picom -b",
         "setxkbmap es",
-        "chromium &",
+        "vivaldi-snapshot &",
         "alacritty &"
     ]
 
